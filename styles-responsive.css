@@ -1,0 +1,180 @@
+@media screen and (max-width: 736px) {
+
+  :root {
+    --header-height: 70px;
+  }
+
+  header, main, section, footer {
+    overflow: hidden;
+    padding: 0rem 1rem 2rem 1rem;
+  }
+
+  main div.holder, section div.holder {
+    padding-top: 4rem;
+    min-height: auto;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+  }
+  h4 small {
+    font-size: 3.5rem;
+  }
+
+  header {
+    padding: 0 2rem;
+  }
+  header nav {
+    display: none;
+  }
+
+  main div.holder {
+    padding-top: calc(var(--header-height) + 2rem);
+    gap: 3rem;
+  }
+  main div.holder > div {
+    justify-content: center;
+    align-items: center;
+  }
+  main figure {
+    height: fit-content;
+    display: none;
+  }
+  main h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  main h3 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    max-width: auto;
+  }
+  main ul {
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: space-between;
+  }
+
+  section#about div.holder {
+    gap: 2rem;
+  }
+  section#about div.holder > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+  }
+  section#about img {
+    max-width: 80vw;
+  }
+  section#about h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  section#tokenomics div.holder {
+    gap: 2rem;
+  }
+  section#tokenomics ul.taxes {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  section#tokenomics ul.taxes li {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+  section#tokenomics ul.taxes li strong {
+    font-size: 3rem;
+  }
+  section#tokenomics ul.taxes li span {
+    font-size: 1rem;
+  }
+  section#tokenomics ul.distribution {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  section#tokenomics ul.distribution li strong {
+    font-size: 1.4rem;
+  }
+  section#tokenomics ul.distribution li span {
+    font-size: .9rem;
+  }
+
+  section#roadmap div.holder {
+    gap: 4rem;
+  }
+  section#roadmap ul.roadmap {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  section#roadmap ul.roadmap > li h5 {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+  section#roadmap ul.roadmap > li h5::after {
+    height: 100px;
+    width: 120px;
+  }
+
+  section#documents {
+    box-shadow: none;
+    background-color: var(--primary-color);
+  }
+  section#documents div.holder {
+    gap: 4rem;
+  }
+  section#documents div.holder > div {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  section#documents video {
+    border-radius: 1rem;
+    max-width: 100%;
+  }
+  section#documents a.whitepaper {
+    padding: 1rem 1rem 1rem 7rem;
+    margin-bottom: 0;
+    border-radius: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  section#documents a.whitepaper::before {
+    left: 2rem;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 70px;
+    width: 70px;
+  }
+  section#documents a.whitepaper strong {
+    font-size: 1.4rem;
+  }
+
+  section#find-us div.holder {
+    gap: 3rem;
+    padding-bottom: 2rem;
+  }
+  section#find-us ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+  }
+  section#find-us ul li a {
+    text-align: center;
+    display: block;
+  }
+  section#find-us ul li a img {
+    max-width: 80%;
+  }
+
+  footer {
+    padding: 0 1rem;
+    text-align: center;
+  }
+  footer div.holder {
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+  
+}
