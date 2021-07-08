@@ -13,6 +13,9 @@
     padding-top: 4rem;
     min-height: auto;
   }
+  section div.holder {
+    padding-top: calc(var(--header-height) + 3rem);
+  }
   
   h4 {
     font-size: 1.2rem;
@@ -22,10 +25,69 @@
   }
 
   header {
-    padding: 0 2rem;
+    padding: 0 1rem;
+    overflow: visible;
+  }
+  header div.holder {
+    justify-content: space-between;
   }
   header nav {
-    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    box-shadow: 0 .5rem .4rem var(--secondary-color);
+    transition: all linear .3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0 2rem 0;
+  }
+  header #menu:checked ~ nav {
+    pointer-events: initial;
+    opacity: 1;
+  }
+  header #menu:checked ~ label {
+    background: none;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+  }
+  header #menu:checked ~ label::after, header #menu:checked ~ label::before {
+    background: #fff;
+    position: absolute;
+    content: "";
+    height: 5px;
+    right: 1rem;
+    top: 2rem;
+    width: 30px;
+    transform: rotate(45deg);
+  }
+  header #menu:checked ~ label::before {
+    transform: rotate(-45deg);
+  }
+  header label {
+    width: 30px;
+    height: 25px;
+    position: relative;
+    background: repeating-linear-gradient(
+      0deg,
+      #fff,
+      #fff 5px,
+      transparent 5px,
+      transparent 10px
+    );
+  }
+  header label::before {
+    top: auto;
+    bottom: -10px;
   }
 
   main div.holder {
@@ -52,7 +114,7 @@
   main ul {
     width: 100%;
     margin-top: 2rem;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   section#about div.holder {

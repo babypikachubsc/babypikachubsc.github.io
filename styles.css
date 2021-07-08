@@ -176,6 +176,10 @@ header h1 {
   margin-left: 1rem;
   white-space: nowrap;
 }
+header #menu {
+  position: absolute;
+  top: -999px;
+}
 header nav {
   flex: 1;
 }
@@ -438,7 +442,7 @@ section#roadmap ul.roadmap > li:first-child h5::after {
   background-image: url('./logo_02.png');
 }
 section#roadmap ul.roadmap > li:last-child h5::after {
-  background-image: url('./haichu.png');
+  background-image: url('./raichu.png');
 }
 section#roadmap ul.roadmap ul {
   list-style: none;
@@ -531,7 +535,6 @@ section#documents a.whitepaper::before {
 }
 section#documents a.whitepaper:hover::before {
   height: 110px;
-  width: 100px;
 }
 section#documents a.whitepaper strong {
   color: var(--primary-color);
