@@ -22,6 +22,53 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity linear 1.2s;
+}
+.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loading 1.2s linear infinite;
+}
+.loading.done {
+  opacity: 0;
+  pointer-events: none;
+}
+.loading.done:after {
+  animation: hide 0.6s linear forwards;
+  -webkit-animation: hide 0.6s linear forwards;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hide {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
 
 div.holder {
   display: flex;
@@ -48,6 +95,12 @@ main div.holder, section div.holder {
   min-height: 100vh;
 }
 
+.button {
+  transition: all linear .2s;
+}
+.button:hover {
+  box-shadow: 0 0 1rem #fff;
+}
 h4 {
   font-weight: 800;
   font-size: 1.6rem;
@@ -85,6 +138,12 @@ header div.holder {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+header div.holder > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 header img {
   height: 50px;
@@ -216,6 +275,7 @@ main ul li a::before {
   border-radius: 50%;
   background-color: #fff;
   background: no-repeat center #fff;
+  transition: all linear .2s;
 }
 main ul li a.instagram::before {
   background-image: url('./social_instagram.png');
@@ -225,6 +285,10 @@ main ul li a.twitter::before {
 }
 main ul li a.telegram::before {
   background-image: url('./social_telegram.png');
+}
+main ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 1rem #fff;
 }
 
 section#about div.holder {
@@ -488,6 +552,7 @@ footer ul li a::before {
   background-color: #fff;
   background: no-repeat center #fff;
   background-size: 50%;
+  transition: all linear .2s;
 }
 footer ul li a.instagram::before {
   background-image: url('./social_instagram.png');
@@ -497,6 +562,10 @@ footer ul li a.twitter::before {
 }
 footer ul li a.telegram::before {
   background-image: url('./social_telegram.png');
+}
+footer ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 1rem #fff;
 }
 footer a.button {
   font-size: 1rem;
