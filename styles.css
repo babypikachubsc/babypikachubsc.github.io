@@ -22,8 +22,18 @@ a {
   color: inherit;
   text-decoration: none;
 }
-.loading {
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+body::before {
+  content: "";
   display: flex;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 100vw;
   height: 100vh;
   background-color: var(--primary-color);
@@ -34,9 +44,12 @@ a {
   opacity: 1;
   transition: opacity linear 1.2s;
 }
-.loading:after {
+body::after {
   content: " ";
   display: block;
+  position: fixed;
+  left: calc(50% - 32px);
+  top: calc(50% - 32px);
   width: 64px;
   height: 64px;
   margin: 8px;
@@ -44,14 +57,21 @@ a {
   border: 6px solid #fff;
   border-color: #fff transparent #fff transparent;
   animation: loading 1.2s linear infinite;
+  -webkit-animation: loading 1.2s linear infinite;
+  z-index: 1001;
 }
-.loading.done {
+body.loaded {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+body.loaded::before {
   opacity: 0;
   pointer-events: none;
 }
-.loading.done:after {
-  animation: hide 0.6s linear forwards;
-  -webkit-animation: hide 0.6s linear forwards;
+body.loaded::after {
+  animation: hide 0.8s linear forwards;
+  -webkit-animation: hide 0.8s linear forwards;
 }
 @keyframes loading {
   0% {
@@ -62,8 +82,11 @@ a {
   }
 }
 @keyframes hide {
-  0% {
+  20% {
     transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0);
   }
   100% {
     transform: scale(0);
@@ -475,29 +498,48 @@ section#documents div.holder > div {
 }
 section#documents video {
   border-radius: 3rem;
+  width: 50%;
 }
 section#documents a.whitepaper {
   background-color: #fff;
   border-radius: 2rem;
-  flex: 1;
-  padding: 2rem 2rem 2rem 10rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 1rem 10rem;
+  min-height: 110px;
+  justify-content: center;
   margin-bottom: 7rem;
+  transition: all linear .2s;
+}
+section#documents a.whitepaper:hover {
+  box-shadow: 0 0 1rem #fff;
 }
 section#documents a.whitepaper::before {
   content: "";
   position: absolute;
   left: 3rem;
-  bottom: .5rem;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   height: 100px;
   width: 100px;
   background: url('./logo_02.png') no-repeat center left;
   background-size: contain;
   display: block;
+  transition: all linear .2s;
+}
+section#documents a.whitepaper:hover::before {
+  height: 110px;
+  width: 100px;
 }
 section#documents a.whitepaper strong {
-  display: block;
   color: var(--primary-color);
   font-size: 1.6rem;
+  white-space: nowrap;
+}
+section#documents a.whitepaper span {
+  white-space: nowrap;
 }
 
 section#find-us div.holder {

@@ -128,22 +128,22 @@
   }
   section#documents video {
     border-radius: 1rem;
-    max-width: 100%;
+    width: 100%;
   }
   section#documents a.whitepaper {
     padding: 1rem 1rem 1rem 7rem;
     margin-bottom: 0;
     border-radius: 1rem;
-    width: 100%;
+    min-height: 80px;
     text-align: center;
   }
   section#documents a.whitepaper::before {
     left: 2rem;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
     height: 70px;
     width: 70px;
+  }
+  section#documents a.whitepaper:hover::before {
+    height: 90px;
   }
   section#documents a.whitepaper strong {
     font-size: 1.4rem;

@@ -49,7 +49,6 @@
   </head>
   <body>
 
-    <div class="loading"></div>
     <header>
       <div class="holder">
 
@@ -225,7 +224,7 @@
 
         <div>
 
-          <video width="560" height="auto" controls>
+          <video width="auto" height="auto" controls>
             <source src="./video.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -274,6 +273,7 @@
     </footer>
     
     <script>
+      window.setTimeout(() => document.querySelector('body').className = 'loaded', 5000);
       const wait = (delay = 0) => new Promise(resolve => setTimeout(resolve, delay));
       let dom_is_loaded = false;
       let fonts_is_loaded = false;
@@ -281,16 +281,17 @@
         dom_is_loaded = true;
 
         wait(1000).then(() => {
-          if (fonts_is_loaded) document.querySelector('.loading').className = 'loading done';
+          if (fonts_is_loaded) document.querySelector('body').className = 'loaded';
         })
       });
       document.fonts.onloadingdone = (fontFaceSetEvent) => {
         fonts_is_loaded = true;
 
         wait(1000).then(() => {
-          if (dom_is_loaded) document.querySelector('.loading').className = 'loading done';
+          if (dom_is_loaded) document.querySelector('body').className = 'loaded';
         })
       };
     </script>
+
   </body>
 </html>
